@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/forest"
+    android:orientation="horizontal"
+    tools:context=".view.StudentMarkFragment">
+
+    <TextView
+        android:id="@+id/textViewCourseNameMarkEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="@color/A"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewStudentNameMarkEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCourseNameMarkEdit" />
+
+    <Spinner
+        android:id="@+id/spinnerMarksEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:spinnerMode="dialog"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStudentNameMarkEdit" />
+
+    <EditText
+        android:id="@+id/editTextNoteEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Notatka"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMarksEdit" />
+
+    <Button
+        android:id="@+id/buttonSaveMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:backgroundTint="@color/A"
+        android:text="@string/save"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNoteEdit" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Asystent nauczyciela</string>
+    <string name="students">Studenci</string>
+    <string name="courses">Kursy</string>
+    <string name="report">Raport</string>
+    <string name="notes">Notatki</string>
+    <string name="show">Wyświetl</string>
+    <string name="add">Dodaj</string>
+    <string name="save">Zapisz</string>
+    <string name="fillInSurname">"Uzupełnij nazwisko studenta"</string>
+
+</resources>
