@@ -7,10 +7,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.SimpleCursorAdapter
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -100,10 +97,18 @@ class StudentMarkEditFragment : Fragment() {
 
 
             buttonSaveMark.setOnClickListener {
-                viewModelMark.updateMark(Mark(currentMark.id, currentMark.student_id, currentMark.course_id,spinnerMarksEdit.selectedItem.toString().toDouble(), SimpleDateFormat("dd-MM-yyyy").format(Date()),editTextNoteEdit.text.toString()))
+                if(editTextNoteEdit.text.isEmpty())
+                {
+                    Toast.makeText(context,"Uzupełnij notatkę.", Toast.LENGTH_SHORT).show()
+                }
+                else
+                {
+                    viewModelMark.updateMark(Mark(currentMark.id, currentMark.student_id, currentMark.course_id,spinnerMarksEdit.selectedItem.toString().toDouble(), SimpleDateFormat("dd-MM-yyyy").format(Date()),editTextNoteEdit.text.toString()))
 
-                val bundle = bundleOf(COURSE_id to currentMark.course_id, student_ID to currentMark.student_id)
-                view.findNavController().navigate(R.id.action_studentMarkEditFragment_to_studentMarkFragment, bundle)
+                    val bundle = bundleOf(COURSE_id to currentMark.course_id, student_ID to currentMark.student_id)
+                    view.findNavController().navigate(R.id.action_studentMarkEditFragment_to_studentMarkFragment, bundle)
+                }
+
             }
         }
 

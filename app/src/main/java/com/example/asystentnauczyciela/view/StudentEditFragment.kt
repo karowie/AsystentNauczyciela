@@ -74,7 +74,7 @@ class StudentEditFragment : Fragment() {
             editTexteditStudentSurname.setText(currentStudent.surname)
 
             buttonSaveStudent.setOnClickListener {
-                if(editTexteditStudentName.text!=null && editTexteditStudentSurname.text != null) {
+                if(!editTexteditStudentName.text.isEmpty() && !editTexteditStudentSurname.text.isEmpty()) {
                     viewModelStudent.updateStudent(
                         Student(
                             studentId,

@@ -82,11 +82,18 @@ class CourseFragment : Fragment() {
 
         }
 
+
         buttonAddCourse.setOnClickListener{
+            val currentCourse = viewModelCourse.courses.value?.find {
+                           x -> x.name == editTextCourseName.text.toString()}
             view.hideKeyboard()
             if(editTextCourseName.text.isEmpty())
             {
                 Toast.makeText(context,"Uzupełnij nazwę kursu.", Toast.LENGTH_SHORT).show()
+            }
+            else if(currentCourse!=null)
+            {
+                Toast.makeText(context,"Taki kurs już istnieje.", Toast.LENGTH_SHORT).show()
             }
             else {
                 viewModelCourse.addCourse(editTextCourseName.text.toString())

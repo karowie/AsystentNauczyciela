@@ -64,9 +64,15 @@ class StudentFragment : Fragment() {
 
         buttonAddStudent.setOnClickListener{
             view.hideKeyboard()
+            val currentStudent = viewModelStudent.students.value?.find {
+                            x -> x.name == editTextStudentName.text.toString() && x.surname == editTextStudentSurname.text.toString() }
             if(!viewModelStudent.checkBeforeAddingStudent(editTextStudentName.text.toString(), editTextStudentSurname.text.toString()))
             {
-                Toast.makeText(context,"Uzupełnij wszytskie pola", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Uzupełnij wszytskie pola.", Toast.LENGTH_SHORT).show()
+            }
+            else if(currentStudent!=null)
+            {
+                Toast.makeText(context,"Taki student już istnieje.", Toast.LENGTH_SHORT).show()
             }
             else
             {

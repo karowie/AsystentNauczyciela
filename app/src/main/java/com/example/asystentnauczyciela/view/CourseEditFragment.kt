@@ -83,7 +83,11 @@ class CourseEditFragment : Fragment() {
 
             buttonSaveCourse.setOnClickListener {
 
-                if(editTexteditCourseName.text != null)
+                if(editTexteditCourseName.text.isEmpty())
+                {
+                    Toast.makeText(context,"Uzupełnij nazwę kursu", Toast.LENGTH_SHORT).show()
+                }
+                else
                 {
                     viewModelCourse.updateCourse(Course(courseId,editTexteditCourseName.text.toString()))
                     viewModelStudentCourse.addStudentToStudentCourseList(addStudentAdapter.checkedStudents, courseId)
@@ -91,12 +95,8 @@ class CourseEditFragment : Fragment() {
                     //viewModelStudent.addToStudentCourseList(viewModelStudent.mapStudents, courseId, viewModelStudentCourse)
                     //Log.d("zapisz",viewModelStudent.mapStudents[viewModelStudent.students.value!![0].id].toString())
                     view.findNavController().navigate(R.id.action_courseEditFragment_to_courseFragment)
-                }
-                else
-                {
-                    Toast.makeText(context,"Uzupełnij nazwę kursu", Toast.LENGTH_SHORT).show()
-                }
 
+                }
             }
         }
     }
